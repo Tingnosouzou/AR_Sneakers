@@ -6,13 +6,18 @@
 <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 
 <style>
-#KMCLOGO {
+
+body {
+    background-color: #5c5c5c;
+}
+
+#LOGO {
     width: 99%;
     position: absolute;
     float: right;
 }
 
-#KMCLOGO img {
+#LOGO img {
     width: 200px;
     margin: 30px 50px;
     float: right;
@@ -114,24 +119,14 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 
 <body>
 
-    <div id="KMCLOGO"><img src="LOGO.gif" alt="LOGO"></div>
+    <div id="LOGO"><img src="Logo.png" alt="LOGO"></div>
 
-    <model-viewer camera-controls id="exposure-demo" environment-image="neutral" src="Sneakers.gltf" exposure="1" shadow-intensity="0">
+    <model-viewer camera-controls id="exposure-demo" environment-image="01.hdr" src="Sneakers.gltf" exposure="0.3" shadow-intensity="0">
     </model-viewer>
 
     <!-- 設定環境光照改變背景 skybox-image="Yellow1.png" -->
     <!-- 設定環境光照而不改變背景 environment-image="neutral" "Yellow1.png" -->
     <!-- 使用 exposure 控制渲染曝光 exposure="1" -->
-
-<script type="module">
-        const blendViewer = document.querySelector("model-viewer#blendViewer");
-        const blendEffect = blendViewer.querySelector('color-grade-effect');
-        const opacity = blendViewer.querySelector('#opacity');
-        const mode = blendViewer.querySelector('#blend-mode');
-
-        opacity.addEventListener('input', (e) => blendEffect.opacity = e.target.value);
-        mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
-</script>
 
     <!--按鈕目標和圖示-->
     <div class="slider"><!-- 滑桿 -->
@@ -141,6 +136,8 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
             <button class="slide selected" id="tab1" onclick="switchSrc(this, 'Sneakers.gltf')">AAA</button>
 
             <button class="slide" id="tab2" onclick="switchSrc(this, 'Sneakers1.gltf')">BBB</button>
+
+            <button class="slide" id="tab2" onclick="switchSrc(this, 'Sneakers2.gltf')">CCC</button>
 
         </div>
     </div>
