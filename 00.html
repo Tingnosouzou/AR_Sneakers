@@ -12,9 +12,10 @@ body {
 }
 
 #LOGO {
-    width: 99%;
     position: absolute;
     float: right;
+    right: 0;
+    z-index: 1;
 }
 
 #LOGO img {
@@ -23,95 +24,37 @@ body {
     float: right;
 }
 
-model-viewer {
-    width: 90%;
-    height: 90%;
-}
-
-#ar-button:active {
-    background-color: #E8EAED/*黑色*/;
-    cursor: pointer;
-}
-
-#ar-button:hover {
-    background-color: #7bc4ff/*黑色*/;
-}
-
-#ar-button:focus-visible {
-    outline: 1px solid #4285f4/*藍色*/;
-}
-
-@keyframes circle {
-    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
-    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
-}
-
-@keyframes elongate {
-    from { transform: translateX(100px); }
-    to   { transform: translateX(-100px); }
-}
-
-model-viewer > #ar-prompt {
-    position: absolute;
-    left: 50%;
-    bottom: 175px;
-    animation: elongate 2s infinite ease-in-out alternate;
-    display: none;
-}
-
-model-viewer[ar-status="session-started"] > #ar-prompt {
-    display: block;
-}
-
-.slider {
-    /* width: 100%;
-    text-align: center;
-    overflow: hidden; */
-    position: absolute;
-    margin: 30px 20px;
-    bottom: 10px;
-}
-
-.slides {
+.frame {
     display: flex;
-    /* overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; */
-}
-
-.slide {
-    scroll-snap-align: center; /*start*/
-    flex-shrink: 0.2;
-    width: 150px;
-    background-repeat: no-repeat;
-    background-color: #fff;
-    opacity:1;
-    margin-right: 10px;
-    display: flex;
-    border: 2px solid #b3b3b3; /*灰色*/
-    font-size: 35px;
-    font-family: Arial;
+    width: 1000px;
+    height: 420px;
     justify-content: center;
+    align-items: flex-end;
+    list-style-type: none;
+}
+
+.item {
+    width: 160px;
+    height: 160px;
+    margin: 10px;
+    border: 2px solid #bababa;
     cursor: pointer;
 }
-
-.slides #tab1, .slides #tab2{
-    font-size: 14px;
+.item:hover {
+    border: 2px solid #6ab4ff;
+    border-radius: 20px;
+    transition: all 0.3s ease 0s;
 }
 
-/*按鈕觸發呈現藍色*/
-.slide.selected {
-    border: 2px solid #4285f4;/*藍色*/
-    cursor: pointer;
-}
 
-.slide:hover {
-    outline: 1px solid #7bc4ff;/*淡藍色*/
+.item img {
+    width: 160px;
+    height: 160px;
 }
-
-.slide:focus-visible {
-    outline: 1px solid #4285f4;/*藍色*/
+.item img:hover {
+    opacity: 0.5;
+    border-radius: 17px;
+    transition: all 0.3s ease 0s;
 }
 
 </style>
@@ -119,45 +62,26 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 
 <body>
 
-    <div id="LOGO"><img src="LOGO.gif" alt="LOGO"></div>
-
-    <model-viewer camera-controls id="exposure-demo" environment-image="01.hdr" src="Sneakers-A.gltf" exposure="0.3" shadow-intensity="0">
-    </model-viewer>
-
-    <!-- 設定環境光照改變背景 skybox-image="Yellow1.png" -->
-    <!-- 設定環境光照而不改變背景 environment-image="neutral" "Yellow1.png" -->
-    <!-- 使用 exposure 控制渲染曝光 exposure="1" -->
+    <div id="LOGO"><a href="00.html"><img src="LOGO.gif" alt="LOGO"></a></div>
 
     <!--按鈕目標和圖示-->
-    <div class="slider"><!-- 滑桿 -->
-        <div class="slides" id="tabs"><!-- 滑塊 -->
-            <!--選取的滑塊-->
+    <ul class="frame">    
+        <li class="item" id="item_01">
+            <a href="01.html"><img src="01.jpg"></a>
+        </li>
 
-            <button class="slide selected" id="tab1" onclick="switchSrc(this, 'Sneakers-A.gltf')">AAA</button>
+        <li class="item" id="item_02">
+            <a href="02.html"><img src="02.jpg"></a>
+        </li>
 
-            <button class="slide" id="tab2" onclick="switchSrc(this, 'Sneakers-B.gltf')">BBB</button>
+        <li class="item" id="item_03">
+            <a href="03.html"><img src="03.jpg"></a>
+        </li>
+        <li class="item" id="item_04">
+            <a href="04.html"><img src="04.jpg"></a>
+        </li>
+    </ul>
 
-            <button class="slide" id="tab2" onclick="switchSrc(this, 'Sneakers-C.gltf')">CCC</button>
-
-        </div>
-    </div>
-
-    <script type="module">
-        const modelViewer = document.querySelector("model-viewer");
-      
-        window.switchSrc = (element, name) => {
-          const base = " " + name;
-          modelViewer.src = base + ' ';
-          modelViewer.poster = base + ' ';
-          const slides = document.querySelectorAll(".slide");
-          slides.forEach((element) => {element.classList.remove("selected");});
-          element.classList.add("selected");
-        };
-        
-        document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
-          ev.preventDefault();
-        });
-      </script>
 
 </body>
 </html>
