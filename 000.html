@@ -1,0 +1,96 @@
+<!DOCTYPE = html>
+<html>
+<head>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+<style>
+
+body {
+    background-color: #5c5c5c;
+}
+
+#LOGO {
+    position: absolute;
+    float: right;
+    right: 0;
+    z-index: 1;
+}
+
+#LOGO img {
+    width: 200px;
+    margin: 30px 50px;
+    float: right;
+}
+
+.frame {
+    display: flex;
+    width: 1000px;
+    height: 420px;
+    justify-content: center;
+    align-items: flex-end;
+    list-style-type: none;
+}
+
+.item {
+    width: 160px;
+    height: 160px;
+    margin: 10px;
+    border: 2px solid #bababa;
+    cursor: pointer;
+}
+.item:hover {
+    border: 2px solid #6ab4ff;
+    border-radius: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+
+.item img {
+    width: 160px;
+    height: 160px;
+}
+.item img:hover {
+    opacity: 0.5;
+    border-radius: 17px;
+    transition: all 0.3s ease 0s;
+}
+#item_02 img {
+    opacity: 0.5;
+}
+#item_03 img {
+    opacity: 0.5;
+}
+#item_04 img {
+    opacity: 0.5;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div id="LOGO"><a href="00.html"><img src="LOGO.gif" alt="LOGO"></a></div>
+
+    <!--按鈕目標和圖示-->
+    <ul class="frame">    
+        <li class="item" id="item_01">
+            <a href="01.html"><img src="001.jpg"></a>
+        </li>
+
+        <li class="item" id="item_02">
+            <!-- <a href="02.html">--><img src="001.jpg"></a>
+        </li>
+
+        <li class="item" id="item_03">
+            <!-- <a href="03.html">--><img src="001.jpg"></a>
+        </li>
+        <li class="item" id="item_04">
+            <!-- <a href="04.html">--><img src="001.jpg"></a>
+        </li>
+    </ul>
+
+
+</body>
+</html>
