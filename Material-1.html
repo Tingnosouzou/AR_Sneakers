@@ -51,22 +51,12 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 </head>
 
 <body>
-    <model-viewer camera-controls id="exposure-demo" environment-image="材質一.hdr" src="Sneakers01.gltf" exposure="1" shadow-intensity="0">
+    <model-viewer camera-controls id="exposure-demo" environment-image="Material-1.hdr" src="Sneakers01.gltf" exposure="1" shadow-intensity="0">
     </model-viewer>
 
     <!-- 設定環境光照改變背景 skybox-image="Yellow1.png" -->
     <!-- 設定環境光照而不改變背景 environment-image="neutral" "Yellow1.png" "01.hdr" -->
     <!-- 使用 exposure 控制渲染曝光 exposure="1" -->
-
-<script type="module">
-        const blendViewer = document.querySelector("model-viewer#blendViewer");
-        const blendEffect = blendViewer.querySelector('color-grade-effect');
-        const opacity = blendViewer.querySelector('#opacity');
-        const mode = blendViewer.querySelector('#blend-mode');
-
-        opacity.addEventListener('input', (e) => blendEffect.opacity = e.target.value);
-        mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
-</script>
 
 </body>
 </html>
