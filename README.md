@@ -1,1 +1,1 @@
-https://tingnosouzou.github.io/AR_Sneakers/材質一.html
+https://tingnosouzou.github.io/AR_Sneakers/Material-1.html
